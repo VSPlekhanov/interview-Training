@@ -1,4 +1,4 @@
-package june;
+package homework1;
 
 public class CyclicLinkedList<T> {
     private Node head;
@@ -6,7 +6,7 @@ public class CyclicLinkedList<T> {
     private int length = 0;
 
     public void add(T value){
-        if (length++ == 0){
+        if (head == null){
             head = new Node(value);
             head.prev = head;
             head.next = head;
@@ -15,6 +15,7 @@ public class CyclicLinkedList<T> {
             head.prev.next = newNode;
             head.prev = newNode;
         }
+        length++;
     }
 
     public T get(int index){
@@ -42,23 +43,42 @@ public class CyclicLinkedList<T> {
         T value = currentNode.value;
         currentNode.prev.next = currentNode.next;
         currentNode.next.prev = currentNode.prev;
-        length--;
         if (index == 0){
-            head = head.next;
+            if (length == 1){
+                head = null;
+            }
+            else {
+                head = head.next;
+            }
         }
+        length--;
         return value;
     }
 
     public T getHead(){
-        return head.value;
+        return head == null ? null : head.value;
     }
 
     public T getTail(){
-        return head.prev.value;
+        return head == null ? null : head.prev.value;
     }
 
     public int getLength(){
         return length;
+    }
+
+    @Override
+    public String toString(){
+        if (head == null){
+            return "CyclicLinkedList: [ null]";
+        }
+        Node node = head;
+        StringBuilder res = new StringBuilder("CyclicLinkedList: [ ");
+        for (int i = 0; i < length - 2; i++) {
+            res.append(node.value).append(", ");
+            node = node.next;
+        }
+        return res.append(node.next.value).append("]").toString();
     }
 
     class Node{
