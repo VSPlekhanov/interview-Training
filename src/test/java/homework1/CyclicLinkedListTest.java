@@ -15,7 +15,7 @@ public class CyclicLinkedListTest {
     private List<String> data;
     @Before
     public void before(){
-        linkedList= new CyclicLinkedList<String>();
+        linkedList= new CyclicLinkedList<>();
         data = Arrays.asList("first", "second", "third", "fourth", "fifth");
         for (String aData : data) {
             linkedList.add(aData);

@@ -2,7 +2,6 @@ package homework1;
 
 public class CyclicLinkedList<T> {
     private Node head;
-
     private int length = 0;
 
     public void add(T value){
