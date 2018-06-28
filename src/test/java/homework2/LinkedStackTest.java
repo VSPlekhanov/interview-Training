@@ -10,14 +10,14 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-public class LinkedtStackTest {
-    private LinkedtStack<String> stack;
+public class LinkedStackTest {
+    private LinkedStack<String> stack;
     private List<String> data;
 
     @Before
     public void before() {
         data = Arrays.asList("first", "second", "third", "fourth", "fifth");
-        stack = new LinkedtStack<>();
+        stack = new LinkedStack<>();
         for (String aData : data) {
             stack.push(aData);
         }
