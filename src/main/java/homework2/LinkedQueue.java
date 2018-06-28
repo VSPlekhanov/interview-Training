@@ -1,25 +1,31 @@
 package homework2;
 
-
-public class LinkedtStack<T> {
+public class LinkedQueue<T> {
     private Node head;
+    private Node tail;
     private int size;
     private boolean isEmpty = true;
 
     public void push(T value){
-        head = new Node(head, value);
-        size++;
+        if (head == null){
+            head = new Node(null, value);
+            tail = head;
+        } else {
+            tail.next = new Node(null, value);
+            tail = tail.next;
+        }
         if (isEmpty){
             isEmpty = false;
         }
+        size++;
     }
 
     public T pop(){
-        if (head == null) {
+        if (isEmpty){
             return null;
         }
         T value = head.value;
-        head = head.prev;
+        head = head.next;
         if (head == null){
             isEmpty = true;
         }
@@ -31,16 +37,16 @@ public class LinkedtStack<T> {
         return size;
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty(){
         return isEmpty;
     }
 
     class Node {
-        Node prev;
+        Node next;
         T value;
 
-        Node(Node prev, T value) {
-            this.prev = prev;
+        Node(Node next, T value) {
+            this.next = next;
             this.value = value;
         }
     }
