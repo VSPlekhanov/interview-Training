@@ -1,6 +1,5 @@
 package homework2;
 
-import java.util.ArrayDeque;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
@@ -21,7 +20,7 @@ public class BracketsValidator {
      */
     static int validate(final String text) {
 
-        final ArrayDeque<Character> stack = new ArrayDeque<>();
+        final Stack<Character> stack = new ArrayStack<>();
         final char[] chars = text.toCharArray();
         int failPlace = 0;
         int pos = 0;
@@ -34,13 +33,12 @@ public class BracketsValidator {
             if (thisCharacterIsOpenBracket.test(c)) {
                 if (stack.isEmpty())
                     failPlace = pos;
-                stack.addLast(c);
+                stack.push(c);
                 continue;
             }
             if (!stack.isEmpty()){
-                char prevChar = stack.getLast();
+                char prevChar = stack.pop();
                 if (thoseCharactersAreNormalBracketPair.test(prevChar, c)) {
-                    stack.removeLast();
                     continue;
                 }
             }

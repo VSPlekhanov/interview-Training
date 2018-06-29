@@ -1,12 +1,12 @@
 package homework2;
 
-public class LinkedQueue<T> {
+public class LinkedQueue<T> implements Queue<T> {
     private Node head;
     private Node tail;
     private int size;
     private boolean isEmpty = true;
 
-    public void push(T value){
+    public void offer(T value){
         if (head == null){
             head = new Node(null, value);
             tail = head;
@@ -20,7 +20,7 @@ public class LinkedQueue<T> {
         size++;
     }
 
-    public T pop(){
+    public T poll(){
         if (isEmpty){
             return null;
         }

@@ -6,19 +6,16 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-public class LinkedQueueTest {
+public class DoubleStackQueueTest {
     private Queue<String> queue;
     private List<String> data;
 
     @Before
     public void before() {
         data = Arrays.asList("first", "second", "third", "fourth", "fifth");
-        queue = new LinkedQueue<>();
+        queue = new DoubleStackQueue<>(new ArrayStack<>(), new ArrayStack<>());
         for (String aData : data) {
             queue.offer(aData);
         }

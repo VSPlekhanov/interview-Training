@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class ArrayStackTest {
-    private ArrayStack<String> stack;
+    private Stack<String> stack;
     private List<String> data;
 
     @Before

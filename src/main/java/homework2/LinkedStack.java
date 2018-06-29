@@ -1,7 +1,7 @@
 package homework2;
 
 
-public class LinkedStack<T> {
+public class LinkedStack<T> implements Stack<T> {
     private Node head;
     private int size;
     private boolean isEmpty = true;

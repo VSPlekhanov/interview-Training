@@ -2,7 +2,7 @@ package homework2;
 
 import java.util.Arrays;
 
-public class ArrayStack<T> {
+public class ArrayStack<T> implements Stack<T> {
     private static final int DEFAULT_CAPACITY = 10;
     private Object[] values = new Object[DEFAULT_CAPACITY];
     private boolean isEmpty = true;
