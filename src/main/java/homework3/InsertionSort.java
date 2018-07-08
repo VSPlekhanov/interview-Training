@@ -2,17 +2,9 @@ package homework3;
 
 import java.util.Comparator;
 
-public class InsertionSort {
+public class InsertionSort implements Sort{
 
-    static <T> void sort(Integer[] array){
-        sort(array, Integer::compare);
-    }
-
-    static <T> void sort(String[] array){
-        sort(array, String::compareTo);
-    }
-
-    static <T> void sort(T[] array, Comparator<T> comparator){
+    public  <T> void sort(T[] array, Comparator<T> comparator){
         for (int i = 1; i < array.length ; i++) {
             if (comparator.compare(array[i - 1], array[i]) < 0){
                 continue;
