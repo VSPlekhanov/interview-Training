@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 public class InsertionSort implements Sort{
 
+    @Override
     public  <T> void sort(T[] array, Comparator<T> comparator){
         for (int i = 1; i < array.length ; i++) {
             if (comparator.compare(array[i - 1], array[i]) < 0){

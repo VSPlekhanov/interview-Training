@@ -2,6 +2,7 @@ package homework3;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -24,7 +25,19 @@ public class SortTest {
         sortTest(new MergeSortUp());
     }
 
+    @Test
+    public void mergeDownSortTest() throws Exception {
+        sortTest(new MergeSortDown());
+    }
+
     private void sortTest(Sort sort) throws Exception {
+        Integer[] integerEmptyArray = new Integer[0];
+        sort.sort(integerEmptyArray, Integer::compare);
+        assertTrue(Arrays.equals(integerEmptyArray, new Integer[0]));
+
+        Integer[] integerOneElementArray = new Integer[]{1};
+        sort.sort(integerOneElementArray, Integer::compare);
+        assertTrue(Arrays.equals(integerOneElementArray, new Integer[]{1}));
 
         Integer[] integerArray = new Integer[]{5, 6, 8, 1, 0, 3, 2, 4, 9, 7, 10};
         sort.sort(integerArray, Integer::compare);
