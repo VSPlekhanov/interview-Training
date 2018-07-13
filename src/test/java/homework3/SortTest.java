@@ -30,6 +30,11 @@ public class SortTest {
         sortTest(new MergeSortDown());
     }
 
+    @Test
+    public void shellSortTest() throws Exception {
+        sortTest(new ShellSort());
+    }
+
     private void sortTest(Sort sort) throws Exception {
         Integer[] integerEmptyArray = new Integer[0];
         sort.sort(integerEmptyArray, Integer::compare);
